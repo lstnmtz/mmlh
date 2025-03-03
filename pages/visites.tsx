@@ -13,9 +13,9 @@ export default function Visites() {
             <h3>Visites de Troyes</h3>
             <p>Explorez la ville de Troyes avec des anecdotes fascinantes.</p>
             <div className="image-grid">
-              <img src="/img/Troyes1.png" alt="Troyes 1" />
-              <img src="/img/Troyes2.png" alt="Troyes 2" />
-              <img src="/img/Troyes3.png" alt="Troyes 3" />
+              <img src="./img/Troyes1.png" alt="Troyes 1" />
+              <img src="./img/Troyes2.png" alt="Troyes 2" />
+              <img src="./img/Troyes3.png" alt="Troyes 3" />
             </div>
           </div>
         );
