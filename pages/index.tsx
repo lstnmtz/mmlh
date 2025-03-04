@@ -10,10 +10,11 @@ export default function Home() {
           <ul>
             <li><Link href="/">Accueil</Link></li>
             <li><Link href="/visites">Les Visites</Link></li>
+            <li><Link href="/signin">Compte</Link></li>
           </ul>
         </nav>
         <h1>Montre-moi l'Histoire</h1>
-        <p>Par Annabelle LAchapelle</p>
+        <p>Par Annabelle Lachapelle</p>
       </header>
       <main>
         <section>
@@ -21,7 +22,7 @@ export default function Home() {
           <p>Découvrez les visites guidées immersives et passionnantes de Troyes, Reims et Langres.</p>
         </section>
         <section>
-          <h2>Mes Réseaux Sociaux</h2>
+          <h2>Mes réseaux sociaux</h2>
           <ul>
             <li><a href="https://www.tiktok.com/@montremoilhistoire" target="_blank">TikTok</a></li>
             <li><a href="https://www.instagram.com/montremoilhistoire" target="_blank">Instagram</a></li>

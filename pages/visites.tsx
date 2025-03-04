@@ -62,6 +62,7 @@ export default function Visites() {
           <ul>
             <li><Link href="/">Accueil</Link></li>
             <li><Link href="/visites">Les Visites</Link></li>
+            <li><Link href="/signin">Compte</Link></li>
           </ul>
         </nav>
         <h1>Montre-moi l'Histoire</h1>
