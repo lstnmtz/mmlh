@@ -73,7 +73,7 @@ export const translations = {
     es: 'Sobre mí'
   },
   'about.intro': {
-    fr: 'Guide conférencière passionnée',
+    fr: 'Guide-conférencière passionnée',
     en: 'Passionate tour guide',
     es: 'Guía turística apasionada'
   },

@@ -31,12 +31,8 @@ const About = () => {
                   Moi, c&apos;est Annabelle.
                 </p>
                 <p className="mb-4">
-                  Je ne me souviens pas d&apos;une seule année dans ma vie sans que le patrimoine ne soit un de mes intérêts.
-                  Petite, je partais peu en vacances traditionnelles, mes parents travaillant beaucoup.
-                  À la place, nous partions deux ou trois jours découvrir des monuments français, la plupart étant des châteaux.
-                  C&apos;est ainsi qu&apos;est née ma passion pour le patrimoine, c&apos;est dans ces lieux que je me sens bien.
-                  Certes, ils impressionnent par leur architecture, mais ce qui me fascinait aussi était le fait qu&apos;ils soient là
-                  depuis plus longtemps que nous et qu&apos;ils aient connus de nombreuses vies.
+                  Le patrimoine a toujours occupé une place centrale dans ma vie. Depuis mon enfance, il constitue l’un de mes centres d’intérêt les plus constants. Mes parents, très investis professionnellement, ne pouvaient pas toujours organiser de longues vacances. À la place, nous profitions de quelques jours pour partir à la découverte de monuments français, principalement des châteaux. C’est au fil de ces escapades que ma passion pour le patrimoine est née. Ces lieux, au-delà de leur architecture impressionnante, me fascinaient par leur ancienneté et les multiples vies qu’ils avaient traversées.
+
                 </p>
               </div>
             </div>
@@ -50,18 +46,13 @@ const About = () => {
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-handwriting text-pink-dark mb-6">Mon parcours</h2>
             <p className="mb-4">
-              En grandissant, il a fallu que je m&apos;oriente. La voie la plus claire était alors de partir
-              en licence d&apos;histoire puisque c&apos;était une matière que j&apos;aimais et qui m&apos;était la plus facile.
-              C&apos;est ainsi que je suis entrée à l&apos;URCA pour une licence d&apos;Histoire parcours Histoire de l&apos;art et Archéologie.
+              Au moment de choisir mon orientation, la voie de l’histoire s’est imposée naturellement. J’ai donc intégré l’Université de Reims Champagne-Ardenne (URCA) pour y suivre une licence d’Histoire, parcours Histoire de l’art et Archéologie.
             </p>
             <p className="mb-4">
-              Mon projet professionnel se dessinant peu à peu, toujours passionnée par le patrimoine et aimant
-              transmettre des anecdotes aux autres, je trouve le métier de mes rêves : guide-conférencière.
+              Progressivement, mon projet professionnel s’est précisé. Animée par le désir de partager mes connaissances et anecdotes avec les autres, je me suis tournée vers le métier de guide-conférencière, qui conjugue parfaitement mes passions : le patrimoine, la transmission et le contact humain.
             </p>
             <p className="mb-8">
-              Pour me diriger vers ce métier, je décide d&apos;intégrer le master Culture, Patrimoine et Médiation
-              de l&apos;URCA, dans le but de me former et d&apos;obtenir la carte de guide-conférencier, qui me sera
-              délivrée à la fin de mes études, à l&apos;été 2026.
+              Pour atteindre cet objectif, j’ai intégré le master Culture, Patrimoine et Médiation à l’URCA, une formation qui me permettra d’acquérir les compétences nécessaires à l’exercice de ce métier et d’obtenir la carte professionnelle de guide-conférencier, prévue pour l’été 2026.
             </p>
 
             <h2 className="text-2xl font-handwriting text-pink-dark mb-6">Mes réseaux sociaux</h2>
@@ -101,6 +92,11 @@ const About = () => {
               Installée à Troyes depuis mes 7 ans, j&apos;ai eu le temps d&apos;explorer la ville, son histoire et ses secrets.
               C&apos;est pourquoi, en parallèle de mes études, je vous propose mes services en tant qu&apos;accompagnatrice culturelle.
             </p>
+            <p className="mb-4">
+              J'ai découvert la ville de Reims lors de ma troisième année de licence d'Histoire. Évidemment, son passé royal m'a immédiatement touché. Mais sa reconstruction d'après-guerre est aussi une des périodes qu'il me semble importante de partager.
+            </p>
+            <p className="mb-4">
+              Quant à Langres, j'ai passé les étés de mon enfance chez mes grands-parents, à arpenter les rues et les campagnes environnantes. C'est pourquoi j'ai naturellement souhaité partager ce patrimoine auprès du public.            </p>
             <p className="mb-4">
               Plusieurs parcours sont disponibles, pensés pour s&apos;adapter à vos envies et à votre curiosité.
             </p>
@@ -142,6 +138,9 @@ const About = () => {
                 <div className="bg-white px-4 py-2 rounded-full shadow-sm">Patrimoine religieux</div>
                 <div className="bg-white px-4 py-2 rounded-full shadow-sm">Contes et légendes</div>
                 <div className="bg-white px-4 py-2 rounded-full shadow-sm">Gastronomie régionale</div>
+                <div className="bg-white px-4 py-2 rounded-full shadow-sm">Renaissance</div>
+                <div className="bg-white px-4 py-2 rounded-full shadow-sm">XIXe siècle</div>
+                <div className="bg-white px-4 py-2 rounded-full shadow-sm">Révolution industrielle</div>
               </div>
             </div>
           </div>

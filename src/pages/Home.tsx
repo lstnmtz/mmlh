@@ -155,6 +155,8 @@ const Home = () => {
                   className="rounded-lg shadow-lg w-full h-auto relative z-10"
                 />
               </div>
+                  <p className="text-xs text-neutral-medium mt-2">© ESTAC Troyes</p>
+
             </div>
           </div>
         </div>

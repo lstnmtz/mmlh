@@ -222,7 +222,7 @@ const Contact = () => {
                   </svg>
                   <div>
                     <p className="font-medium">Téléphone</p>
-                    <p className="text-neutral-dark">+33 6 12 34 56 78</p>
+                    <p className="text-neutral-dark">07 81 78 72 65</p>
                   </div>
                 </div>
                 
