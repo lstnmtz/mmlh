@@ -98,6 +98,36 @@ const Navbar = () => {
               </Link>
             )
           )}
+          <div className="flex items-center space-x-4">
+            <a
+              href="https://www.tiktok.com/@montremoilhistoire"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Tiktok"
+              className="hover:scale-110 transition"
+            >
+              <img src="/icons/tiktok.svg" alt="Tiktok" className="w-6 h-6" />
+            </a>
+            <a
+              href="https://www.youtube.com/@MontremoilHistoire/?sub_confirmation=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Youtube"
+              className="hover:scale-110 transition"
+            >
+              <img src="/icons/youtube.svg" alt="Youtube" className="w-6 h-6" />
+            </a>
+            <a
+              href="https://www.instagram.com/montremoilhistoire/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="hover:scale-110 transition"
+            >
+              <img src="/icons/instagram.svg" alt="Instagram" className="w-6 h-6" />
+            </a>
+            {/* Ajoute d'autres réseaux si besoin */}
+          </div>
           <LanguageSelector />
         </div>
 
@@ -154,6 +184,35 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
+            <div className="flex items-center space-x-4 px-4 py-2">
+              <a
+                href="https://www.tiktok.com/@montremoilhistoire"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tiktok"
+                className="hover:scale-110 transition"
+              >
+                <img src="/icons/tiktok.svg" alt="Tiktok" className="w-7 h-7" />
+              </a>
+              <a
+                href="https://www.youtube.com/@MontremoilHistoire/?sub_confirmation=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Youtube"
+                className="hover:scale-110 transition"
+              >
+                <img src="/icons/youtube.svg" alt="Youtube" className="w-6 h-6" />
+              </a>
+              <a
+                href="https://www.instagram.com/montremoilhistoire/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="hover:scale-110 transition"
+              >
+                <img src="/icons/instagram.svg" alt="Instagram" className="w-7 h-7" />
+              </a>
+            </div>
           </div>
         </div>
       )}

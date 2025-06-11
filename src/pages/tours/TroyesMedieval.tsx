@@ -50,6 +50,7 @@ const TroyesMedieval = () => (
         <div className="flex justify-end">
           <Link
             to="/contact"
+            state={{ visite: "Troyes du Moyen-Âge au XIXe siècle" }}
             className="btn btn-primary"
           >
             Réserver cette visite

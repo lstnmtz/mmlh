@@ -34,6 +34,24 @@ const Home = () => {
             </Link>
           </div>
         </div>
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center"
+          onClick={() => {
+            const nextSection = document.querySelector('.section');
+            if (nextSection) {
+              nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+          tabIndex={0}
+          role="button"
+          aria-label="Faire défiler vers la suite"
+        >
+          <span className="text-white text-base font-semibold mb-2 drop-shadow-lg">Faire défiler</span>
+          <div className="rounded-full bg-black/40 p-3 shadow-lg">
+            <svg className="animate-bounce w-10 h-10 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
       </section>
 
       {/* Featured Cities Section */}
@@ -155,7 +173,7 @@ const Home = () => {
                   className="rounded-lg shadow-lg w-full h-auto relative z-10"
                 />
               </div>
-                  <p className="text-xs text-neutral-medium mt-2">© ESTAC Troyes</p>
+              <p className="text-xs text-neutral-medium mt-2">© ESTAC Troyes</p>
 
             </div>
           </div>

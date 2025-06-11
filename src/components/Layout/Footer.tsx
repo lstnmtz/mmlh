@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -31,6 +30,11 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/about" className="text-neutral-dark hover:text-pink-medium transition-colors">
+                  {t('nav.about')}
+                </Link>
+              </li>
+              <li>
                 <Link to="/tours" className="text-neutral-dark hover:text-pink-medium transition-colors">
                   {t('nav.tours')}
                 </Link>
@@ -40,11 +44,6 @@ const Footer = () => {
                   {t('nav.contact')}
                 </Link>
               </li>
-              <li>
-                <Link to="/about" className="text-neutral-dark hover:text-pink-medium transition-colors">
-                  {t('nav.about')}
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -52,52 +51,32 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Social Media</h4>
             <div className="flex space-x-4">
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
+              <a
+                href="https://www.tiktok.com/@montremoilhistoire"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-dark hover:text-pink-medium transition-colors"
+                aria-label="Tiktok"
+                className="hover:scale-110 transition"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
+                <img src="/icons/tiktok.svg" alt="Tiktok" className="w-6 h-6" />
               </a>
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
+              <a
+                href="https://www.youtube.com/@MontremoilHistoire/?sub_confirmation=1"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-dark hover:text-pink-medium transition-colors"
+                aria-label="Youtube"
+                className="hover:scale-110 transition"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                </svg>
+                <img src="/icons/youtube.svg" alt="Youtube" className="w-6 h-6" />
               </a>
-              <a 
-                href="https://youtube.com" 
-                target="_blank" 
+              <a
+                href="https://www.instagram.com/montremoilhistoire/"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-neutral-dark hover:text-pink-medium transition-colors"
+                aria-label="Instagram"
+                className="hover:scale-110 transition"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                </svg>
-              </a>
-              <a 
-                href="https://tiktok.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-neutral-dark hover:text-pink-medium transition-colors"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                  <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"></path>
-                  <path d="M15 8c0 1.657-1.343 3-3 3"></path>
-                  <path d="M20 6c-1.657 0-3-1.343-3-3"></path>
-                  <path d="M20 6v8"></path>
-                  <path d="M12 11V3"></path>
-                </svg>
+                <img src="/icons/instagram.svg" alt="Instagram" className="w-6 h-6" />
               </a>
             </div>
           </div>

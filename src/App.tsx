@@ -16,6 +16,8 @@ import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import TroyesMedieval from "./pages/tours/TroyesMedieval";
+import TroyesReligieuse from "./pages/tours/TroyesReligieuse";
+import TroyesRurale from "./pages/tours/TroyesRurale";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +35,8 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/tours" element={<Tours />} />
               <Route path="/tours/troyes-medieval" element={<TroyesMedieval />} />
+              <Route path="/tours/troyes-religieuse" element={<TroyesReligieuse />} />
+              <Route path="/tours/troyes-rurale" element={<TroyesRurale />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/testimonials" element={<Testimonials />} />
               <Route path="/contact" element={<Contact />} />

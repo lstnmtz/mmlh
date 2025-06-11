@@ -1,11 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useToast } from "@/hooks/use-toast";
+import { useLocation } from "react-router-dom";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
-  
+  const location = useLocation();
+  const visite = location.state?.visite || "";
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    participants: '',
+    tour: '',
+    date: '',
+    message: '',
+    question: '',
+  });
+
+  useEffect(() => {
+    if (visite) {
+      setFormData(prev => ({ ...prev, tour: visite }));
+    }
+  }, [visite]);
+
   const toursList = [
     {
       city: "Troyes",
@@ -29,17 +50,6 @@ const Contact = () => {
     },
   ];
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    participants: '',
-    tour: '',
-    date: '',
-    message: '',
-    question: '',
-  });
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -47,27 +57,68 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    console.log('Form submitted:', formData);
-    
-    // Show success message
-    toast({
-      title: "Message envoyé !",
-      description: "Merci pour votre message. Je vous répondrai dans les meilleurs délais.",
-    });
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      participants: '',
-      tour: '',
-      date: '',
-      message: '',
-      question: '',
-    });
+
+    // Envoi à toi (admin)
+    emailjs.send(
+      'service_6z84iyd',
+      'template_gek4tiu', // ton template admin
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        participants: formData.participants,
+        tour: formData.tour,
+        date: formData.date,
+        message: formData.message,
+        question: formData.question,
+      },
+      'YZpNifJ-smQjezHI-'
+    );
+
+    // Envoi au client
+    emailjs.send(
+      'service_6z84iyd',
+      'template_3kdc34d', // ton template client
+      {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        participants: formData.participants,
+        tour: formData.tour,
+        date: formData.date,
+        message: formData.message,
+        question: formData.question,
+      },
+      'YZpNifJ-smQjezHI-'
+    )
+      .then(() => {
+        toast({
+          title: "Message envoyé !",
+          description: "Merci pour votre message. Je vous répondrai dans les meilleurs délais.",
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          participants: '',
+          tour: '',
+          date: '',
+          message: '',
+          question: '',
+        });
+      })
+      .catch(() => {
+        toast({
+          title: "Erreur",
+          description: "Une erreur est survenue lors de l'envoi du message.",
+        });
+      });
   };
+
+  const today = new Date();
+  const minDate = new Date(today.setDate(today.getDate() + 7))
+    .toISOString()
+    .split('T')[0];
 
   return (
     <div>
@@ -122,7 +173,7 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-neutral-dark mb-1">
-                      {t('contact.phone')}
+                      {t('contact.phone')} *
                     </label>
                     <input
                       type="tel"
@@ -130,12 +181,13 @@ const Contact = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
+                      required
                       className="w-full px-4 py-2 border border-neutral-medium rounded-md focus:ring-2 focus:ring-pink focus:border-pink outline-none transition"
                     />
                   </div>
                   <div>
                     <label htmlFor="participants" className="block text-sm font-medium text-neutral-dark mb-1">
-                      {t('contact.participants')}
+                      {t('contact.participants')} *
                     </label>
                     <input
                       type="number"
@@ -144,6 +196,7 @@ const Contact = () => {
                       min="1"
                       value={formData.participants}
                       onChange={handleChange}
+                      required
                       className="w-full px-4 py-2 border border-neutral-medium rounded-md focus:ring-2 focus:ring-pink focus:border-pink outline-none transition"
                     />
                   </div>
@@ -176,7 +229,7 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="date" className="block text-sm font-medium text-neutral-dark mb-1">
-                    {t('contact.date')}
+                    {t('contact.date')} *
                   </label>
                   <input
                     type="date"
@@ -184,6 +237,8 @@ const Contact = () => {
                     name="date"
                     value={formData.date}
                     onChange={handleChange}
+                    min={minDate}
+                    required
                     className="w-full px-4 py-2 border border-neutral-medium rounded-md focus:ring-2 focus:ring-pink focus:border-pink outline-none transition"
                   />
                 </div>
@@ -249,52 +304,32 @@ const Contact = () => {
                 <div className="pt-6 mt-6 border-t border-neutral-medium">
                   <p className="font-medium mb-2">Réseaux sociaux</p>
                   <div className="flex space-x-4">
-                    <a 
-                      href="https://instagram.com" 
-                      target="_blank" 
+                    <a
+                      href="https://www.tiktok.com/@montremoilhistoire"
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="text-neutral-dark hover:text-pink-medium transition-colors"
+                      aria-label="Tiktok"
+                      className="hover:scale-110 transition"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                      </svg>
+                      <img src="/icons/tiktok.svg" alt="Tiktok" className="w-6 h-6" />
                     </a>
-                    <a 
-                      href="https://facebook.com" 
-                      target="_blank" 
+                    <a
+                      href="https://www.youtube.com/@MontremoilHistoire/?sub_confirmation=1"
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="text-neutral-dark hover:text-pink-medium transition-colors"
+                      aria-label="Youtube"
+                      className="hover:scale-110 transition"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                      </svg>
+                      <img src="/icons/youtube.svg" alt="Youtube" className="w-6 h-6" />
                     </a>
-                    <a 
-                      href="https://youtube.com" 
-                      target="_blank" 
+                    <a
+                      href="https://www.instagram.com/montremoilhistoire/"
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="text-neutral-dark hover:text-pink-medium transition-colors"
+                      aria-label="Instagram"
+                      className="hover:scale-110 transition"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                        <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                      </svg>
-                    </a>
-                    <a 
-                      href="https://tiktok.com" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-neutral-dark hover:text-pink-medium transition-colors"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                        <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"></path>
-                        <path d="M15 8c0 1.657-1.343 3-3 3"></path>
-                        <path d="M20 6c-1.657 0-3-1.343-3-3"></path>
-                        <path d="M20 6v8"></path>
-                        <path d="M12 11V3"></path>
-                      </svg>
+                      <img src="/icons/instagram.svg" alt="Instagram" className="w-6 h-6" />
                     </a>
                   </div>
                 </div>
